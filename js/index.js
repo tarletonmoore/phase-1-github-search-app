@@ -14,19 +14,38 @@ function formSubmit(event) {
             }
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => renderUserData(data))
 }
 
 function renderUserData(data) {
     let list = document.getElementById(`user-list`)
     // username, avatar and a link
-    console.log(data.login)
-    // let newObj = {
-    //     username: data.login,
-    //     avatar: data.avatar_url,
-    //     profile: data.url
-    // }
+    for (let i = 0; i < data.items.length; i++) {
+        console.log(data.items[0])
+        let userObj = data.items[i]
+        let li = document.createElement("li")
+        let div = document.createElement("div")
+        let h1 = document.createElement("h1")
+        let img = document.createElement("img")
+        let p = document.createElement("p")
+        let underline = document.createElement("u")
+        // let a = document.createElement("a")
+        h1.innerText = userObj.login
+        img.src = userObj.avatar_url
+        // a.href = userObj.url
+        // a.innerText = userObj.url
+        underline.innerText = userObj.url
+        p.append(underline)
+        li.append(div, h1, img, p)
+        list.append(li)
+    }
 
+
+
+
+
+    // .addEventListener(`click`, () => {
+    //     fetch(`${userObj.url}/repos`)
+    // })
 
 }
-
