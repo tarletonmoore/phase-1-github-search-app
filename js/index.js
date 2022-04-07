@@ -45,7 +45,7 @@ function renderUserData(data) {
 
 
     // .addEventListener(`click`, () => {
-    //     fetch(`${userObj.url}/repos`)
+    //     fetch(`https://api.github.com/users//repos`)
     // })
 
 }
